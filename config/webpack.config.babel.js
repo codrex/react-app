@@ -13,7 +13,7 @@ module.exports = {
   context: path.resolve(__dirname, '../src'),
   // entry point
   entry: {
-    main: path.resolve(__dirname, '../src/index.jsx'),
+    main: './index.jsx',
   },
   // source map
   devtool: 'inline-source-map',
@@ -28,15 +28,15 @@ module.exports = {
     hot: true,
   },
 
-  optimization: {
-    nodeEnv: 'production',
-    minimize: true, // removes unnecessary and development specific
-    // code when building for production
-    concatenateModules: true, // turns on module concatenation
-    splitChunks: { chunks: 'all' }, // this enables smart splitting, it split vender code that gets
-    // larger than 30kb
-    runtimeChunk: true, // read about this here https://gist.github.com/sokra/1522d586b8e5c0f5072d7565c2bee693
-  },
+  // optimization: {
+  //   nodeEnv: 'production',
+  //   minimize: true, // removes unnecessary and development specific
+  //   // code when building for production
+  //   concatenateModules: true, // turns on module concatenation
+  //   splitChunks: { chunks: 'all' }, // this enables smart splitting, it split vender code that gets
+  //   // larger than 30kb
+  //   runtimeChunk: true, // read about this here https://gist.github.com/sokra/1522d586b8e5c0f5072d7565c2bee693
+  // },
   // loaders
   module: {
     rules: [
@@ -54,7 +54,7 @@ module.exports = {
         test: /\.scss$/,
         use: [
           'style-loader',
-          MiniCssExtractPlugin.loader,
+          // MiniCssExtractPlugin.loader,
           { loader: 'css-loader', options: { minimize: true } }, // enable minification of css file
           'postcss-loader',
           'sass-loader',

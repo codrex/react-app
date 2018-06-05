@@ -1,12 +1,13 @@
 import React from 'react';
 import { render } from 'react-dom';
+import MenuIcon from './components/MenuIcon';
 
 import './styles.scss';
 
 /*eslint-disable*/
 class App extends React.Component {
   render() {
-    return <div>Hello world!</div>;
+    return <MenuIcon />;
   }
 }
 render(<App />, document.getElementById('app'));
