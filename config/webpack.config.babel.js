@@ -24,6 +24,16 @@ module.exports = {
     contentBase: '/',
     hot: true,
   },
+
+  optimization: {
+    nodeEnv: 'production',
+    minimize: true, // removes unnecessary and development specific
+    // code when building for production
+    concatenateModules: true, // turns on module concatenation
+    splitChunks: { chunks: 'all' }, // this enables smart splitting, it split vender code that gets
+    // larger than 30kb
+    runtimeChunk: true, // read about this here https://gist.github.com/sokra/1522d586b8e5c0f5072d7565c2bee693
+  },
   // loaders
   module: {
     rules: [
@@ -42,10 +52,26 @@ module.exports = {
         use: [
           'style-loader',
           MiniCssExtractPlugin.loader,
-          'css-loader',
+          { loader: 'css-loader', options: { minimize: true } }, // enable minification of css file
           'postcss-loader',
           'sass-loader',
         ],
+      },
+      {
+        test: /\.(jpe?g|png|gif|svg)$/,
+        loader: 'image-webpack-loader',
+        // This will apply the loader before the other ones
+        enforce: 'pre',
+      },
+      {
+        test: /\.(jpe?g|png|gif)$/,
+        loader: 'url-loader',
+        options: { limit: 10 * 1024 }, // inline files smaller than 10kb
+      },
+      {
+        test: /\.svg$/,
+        loader: 'svg-url-loader',
+        options: { limit: 10 * 1024, noquotes: true }, // inline files smaller than 10kb
       },
     ],
   },
