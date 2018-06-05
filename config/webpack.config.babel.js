@@ -7,10 +7,13 @@ import WebpackMd5Hash from 'webpack-md5-hash';
 import CleanWebpackPlugin from 'clean-webpack-plugin';
 
 module.exports = {
+  resolve: {
+    extensions: ['.js', '.jsx'],
+  },
   context: path.resolve(__dirname, '../src'),
   // entry point
   entry: {
-    main: './index.jsx',
+    main: path.resolve(__dirname, '../src/index.jsx'),
   },
   // source map
   devtool: 'inline-source-map',
