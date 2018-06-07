@@ -27,12 +27,19 @@ $text-color: rgba(#000, 0.8);
         margin-left: 0px !important
     }
     &--arrow::after {
-        height: .6rem;
-        width: .6rem;
+        height: .4rem;
+        width: .4rem;
         background-color: transparent;
         content: "";
-        transform: rotate(45deg);
-        box-shadow: inset -1px 1px 0px 1px black;
         margin-left: 8px;
+        border: 2px solid transparent;
+        border-right-color: black;
+        border-top-color: black
+    }
+    &--arrow-right::after {
+        transform: rotate(45deg);
+    }
+    &--arrow-left::after {
+        transform: rotate(-135deg);
     }
 }

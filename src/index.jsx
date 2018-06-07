@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
-import CaptionArea from './components/CaptionArea';
+import Carousel from './components/Carousel';
 
 import './styles.scss';
 
@@ -9,7 +9,13 @@ class App extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <CaptionArea />
+        <Carousel>
+          <div style={{ width: '100%', height: '100%', backgroundColor: 'pink' }} />
+          <div style={{ width: '100%', height: '100%', backgroundColor: 'yellow' }} />
+          <div style={{ width: '100%', height: '100%', backgroundColor: 'brown' }} />
+          <div style={{ width: '100%', height: '100%', backgroundColor: 'purple' }} />
+          <div style={{ width: '100%', height: '100%', backgroundColor: 'orange' }} />
+        </Carousel>
       </React.Fragment>
     );
   }
