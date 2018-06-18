@@ -1,0 +1,33 @@
+@import "./mixins.scss";
+* {
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+}
+
+/* html {
+    @include fluid-type(font-size, 320px, 1366px, 14px, 16px);
+} */
+
+html {
+    font-size: px2vw($root-font-size, 1200px);
+    @media screen and (max-width: 600px) {
+        font-size: px2vw(10px, 600px);
+    }
+}
+
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0
+}
+
+.app {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background: darken(#fff, 8%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

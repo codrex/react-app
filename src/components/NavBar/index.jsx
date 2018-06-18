@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import { string, objectOf, shape } from 'prop-types';
 import './style.scss';
 
 class NavBar extends PureComponent {
@@ -16,16 +17,27 @@ class NavBar extends PureComponent {
     );
   }
   render() {
-    const links = ['design', 'news', 'vlog'];
+    const { links, className, style } = this.props;
     return (
-      <div className="nav-bar">
+      <div className={`nav-bar ${className}`} style={style}>
         {NavBar.renderLogo()}
         <ul className="nav-bar__links">
-          {links.map(link => NavBar.renderNavLink(`/${link}`, link))}
+          {Object.keys(links).map(link => NavBar.renderNavLink(links[link], link))}
         </ul>
       </div>
     );
   }
 }
+
+NavBar.propTypes = {
+  links: objectOf(string).isRequired,
+  className: string,
+  style: objectOf(shape),
+};
+
+NavBar.defaultProps = {
+  className: '',
+  style: {},
+};
 
 export default NavBar;

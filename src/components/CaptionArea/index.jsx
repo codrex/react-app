@@ -12,7 +12,10 @@ function CaptionArea() {
         natus rerum ipsum quo in sit.
       </div>
       <div className="caption-area__footer">
-        <Button className="btn--light btn--arrow caption-area__btn" text="read more" />
+        <Button
+          className="btn--light btn--arrow btn--arrow-right caption-area__btn"
+          text="read more"
+        />
       </div>
     </div>
   );

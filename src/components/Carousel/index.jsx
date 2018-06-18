@@ -51,18 +51,20 @@ class Carousel extends PureComponent {
   render() {
     return (
       <div className="carousel">
-        {this.renderItems()}
-        <div className="carousel__trigger">
-          <Button
-            className="btn--red btn--arrow btn--arrow-left"
-            withoutText
-            handleClick={this.previous}
-          />
-          <Button
-            className="btn--light btn--arrow btn--arrow-right"
-            withoutText
-            handleClick={this.next}
-          />
+        <div className="carousel__row">
+          {this.renderItems()}
+          <div className="carousel__trigger">
+            <Button
+              className="btn--red btn--arrow btn--arrow-left"
+              withoutText
+              handleClick={this.previous}
+            />
+            <Button
+              className="btn--light btn--arrow btn--arrow-right"
+              withoutText
+              handleClick={this.next}
+            />
+          </div>
         </div>
       </div>
     );

@@ -5,6 +5,7 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import WebpackMd5Hash from 'webpack-md5-hash';
 import CleanWebpackPlugin from 'clean-webpack-plugin';
+import ImageminPlugin from 'imagemin-webpack-plugin';
 
 module.exports = {
   resolve: {
@@ -60,21 +61,42 @@ module.exports = {
           'sass-loader',
         ],
       },
-      {
-        test: /\.(jpe?g|png|gif|svg)$/,
-        loader: 'image-webpack-loader',
-        // This will apply the loader before the other ones
-        enforce: 'pre',
-      },
-      {
-        test: /\.(jpe?g|png|gif)$/,
-        loader: 'url-loader',
-        options: { limit: 10 * 1024 }, // inline files smaller than 10kb
-      },
+      // {
+      //   test: /\.(jpe?g|png|gif|svg)$/,
+      //   loader: 'image-webpack-loader',
+      //   // This will apply the loader before the other ones
+      //   enforce: 'pre',
+      // },
+      // {
+      //   test: /\.(jpe?g|png|gif)$/,
+      //   loader: 'url-loader',
+      //   options: { limit: 10 * 1024 }, // inline files smaller than 10kb
+      // },
       {
         test: /\.svg$/,
         loader: 'svg-url-loader',
         options: { limit: 10 * 1024, noquotes: true }, // inline files smaller than 10kb
+      },
+      {
+        test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'fonts/',
+            },
+          },
+        ],
+      },
+      {
+        test: /\.(jpeg)$/i,
+        loader: 'responsive-loader',
+        options: {
+          adapter: require('responsive-loader/sharp'), //eslint-disable-line
+          placeholder: true,
+          placeholderSize: 50,
+        },
       },
     ],
   },
@@ -91,5 +113,9 @@ module.exports = {
     }),
     new WebpackMd5Hash(),
     new CleanWebpackPlugin('dist', {}),
+    new ImageminPlugin({
+      // disable: process.env.NODE_ENV !== 'production', // Disable during development
+      test: 'images/**',
+    }),
   ],
 };
