@@ -1,0 +1,45 @@
+@import "../../styles/mixins";
+.about-me {
+    width: 100%;
+    min-height: 30rem;
+    padding: 2.5rem 5rem;
+    position: relative;
+    display: flex;
+    background-color: #fff;
+    box-shadow: 0px 53px 127px 5px rgba(0, 0, 0, 0.32);
+    &__col--left {
+        position: relative;
+        min-height: 100%;
+        min-width: 22rem;
+        margin-right: 5rem;
+    }
+    &__avatar {
+        min-width: fit-content;
+        height: 110%;
+        position: absolute;
+        margin-top: -5rem;
+        filter: drop-shadow(1px 1px 20px rgba(0, 0, 0, 0.2));
+        box-shadow: 1px 1px 20px 0px rgba(0, 0, 0, 0.05);
+    }
+    &__title {
+        font-size: 1.5rem;
+        margin-bottom: 0;
+        margin-top: 0.8rem;
+        color: $accent-color;
+    }
+    &__caption {
+        margin: 0;
+        color: rgba($primary-color, 0.9);
+    }
+    &__body {
+        color: $text-color;
+        max-width: 30rem;
+    }
+    &__btn {
+        background-color: $accent-color;
+        color: #fff;
+        text-transform: uppercase;
+        padding-left: 3rem;
+        padding-right: 3rem;
+    }
+}

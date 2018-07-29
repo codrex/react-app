@@ -1,0 +1,79 @@
+@import "../../styles/var.scss";
+.art-mind {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    position: relative;
+    box-shadow: 0px 76px 101px -9px rgba(0, 0, 0, 0.38);
+    &__image-wrapper {
+        position: absolute;
+        overflow: hidden;
+        width: 30%;
+        height: 100%;
+        right: 0;
+    }
+    &__image {
+        position: absolute;
+        min-width: 100%;
+        height: auto;
+    }
+    &__text {
+        height: 100%;
+        width: 50%;
+        background-color: #fff;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 0 4.5rem;
+        line-height: 0.9;
+        text-transform: capitalize;
+        z-index: 1;
+    }
+    &__mask {
+        background: url("../../images/painting.jpg?size=300") no-repeat center;
+        background-size: cover;
+        color: #fff;
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+    }
+    &__lead-text {
+        font-size: 8rem;
+        margin: 0;
+    }
+    &__sub-text {
+        padding: 0 1rem;
+        font-size: 1.1rem;
+        font-weight: 900;
+        text-transform: uppercase;
+        margin-top: 0.8rem;
+    }
+    &__card {
+        width: 40%;
+        position: relative;
+        height: 40rem;
+        background: #fff;
+        padding: 0 4rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        z-index: 1;
+        box-shadow: $box-shadow-deep;
+        &__title {
+            color: $primary-color;
+        }
+        &__body {
+            line-height: 1.8rem;
+            color: rgba(0, 0, 0, 0.7);
+        }
+    }
+    &__btn {
+        padding: 0 3rem;
+        margin-top: 1rem;
+        text-transform: uppercase;
+        background-color: $accent-color;
+        color: #fff;
+    }
+}

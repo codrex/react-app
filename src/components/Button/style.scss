@@ -1,0 +1,45 @@
+@import "../../styles/mixins.scss";
+.btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    height: 3.7rem;
+    padding: 0 1.5rem;
+    font-size: 1.2rem;
+    font-weight: 100;
+    user-select: none;
+    outline: none;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    &::first-letter {
+        text-transform: uppercase;
+    }
+    &--red {
+        background-color: #ff5a55;
+        color: $text-color;
+    }
+    &--light {
+        background-color: #fff;
+        color: $text-color;
+    }
+    &--without-text::after {
+        margin-left: 0px !important;
+    }
+    &--arrow::after {
+        height: 0.4rem;
+        width: 0.4rem;
+        background-color: transparent;
+        content: "";
+        margin-left: px2rem(8px);
+        border: px2rem(2px) solid transparent;
+        border-right-color: black;
+        border-top-color: black;
+    }
+    &--arrow-right::after {
+        transform: rotate(45deg);
+    }
+    &--arrow-left::after {
+        transform: rotate(-135deg);
+    }
+}

@@ -1,0 +1,69 @@
+@import "../../styles/var.scss";
+.page-two {
+    display: flex;
+    flex-direction: column;
+    padding: 0 5rem;
+    background-color: $primary-color;
+    &__logo {
+        background-color: transparent;
+        color: $heading-color-light;
+        font-weight: 900;
+        font-size: 3rem;
+        padding: 0;
+    }
+    &__nav-bar * {
+        font-family: $heading-font;
+    }
+    &__nav-links {
+        justify-content: flex-end;
+    }
+    &__nav-a {
+        color: $heading-color;
+        &:hover {
+            color: $heading-color-light;
+        }
+    }
+    &__hero-area {
+        height: 25rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    &__about-area {
+        min-height: fit-content;
+        margin: $section-space 0;
+        z-index: 1;
+    }
+    &__stacks-area {
+        width: 100%;
+        min-height: fit-content;
+        display: flex;
+        margin-bottom: $section-space;
+    }
+    &__stack {
+        width: 33.33%;
+        min-height: fit-content;
+        &:nth-child(2) {
+            margin: 0 5rem;
+        }
+    }
+    &__projects-area {
+        height: 40rem;
+        margin-bottom: $section-space;
+    }
+    &__hire-me {
+        height: 30rem;
+        margin-bottom: $section-space;
+    }
+    &::after {
+        content: "";
+        position: absolute;
+        height: 50rem;
+        width: 100%;
+        left: 0;
+        opacity: 0.6;
+        mix-blend-mode: darken;
+        pointer-events: none;
+        background-image: linear-gradient(135deg, #f3593a 20%, #d1233752 56%);
+    }
+}

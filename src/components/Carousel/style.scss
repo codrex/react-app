@@ -1,0 +1,61 @@
+.carousel {
+    min-height: 100%;
+    width: 100%;
+    position: relative;
+    display: flex;
+    &__row {
+        height: 100%;
+        width: 100%;
+    }
+    &__item {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        backface-visibility: hidden;
+        perspective: 1000px;
+        opacity: 0;
+        &--enter {
+            opacity: 1;
+            animation: 4s forwards enter cubic-bezier(0.075, 0.82, 0.165, 1);
+        }
+        &--leave {
+            animation: 3s forwards leave cubic-bezier(0.075, 0.82, 0.165, 1);
+        }
+    }
+    &__trigger {
+        position: absolute;
+        z-index: 1;
+        display: flex;
+        bottom: 0;
+        & .btn {
+            width: 5rem;
+            height: 4rem;
+        }
+    }
+}
+
+@keyframes enter {
+    0% {
+        opacity: 0;
+        visibility: hidden;
+    }
+    100% {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+@keyframes leave {
+    0% {
+        opacity: 1;
+        visibility: visible;
+    }
+    50% {
+        opacity: 0.5;
+        visibility: visible;
+    }
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}

@@ -1,0 +1,22 @@
+@import "../../styles/mixins.scss";
+.caption-area {
+    display: flex;
+    flex-direction: column;
+    &__header {
+        max-width: 70%;
+        min-width: px2rem(300px);
+        font-size: 3rem;
+        font-weight: 900;
+    }
+    &__body {
+        font-size: 1rem;
+        line-height: 2rem;
+        color: rgba(0, 0, 0, .8);
+    }
+    &__btn {
+        width: px2rem(120px);
+        justify-content: space-between;
+        font-style: italic;
+        padding-left: 0;
+    }
+}

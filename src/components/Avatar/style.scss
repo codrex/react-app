@@ -1,0 +1,27 @@
+.avatar {
+    width: 100%;
+    height: 100%;
+    border: 3rem #fff solid;
+    border-bottom-width: 4.5rem;
+    border-top-width: 4.5rem;
+    position: relative;
+    background: #fff;
+    box-sizing: border-box;
+    &::after {
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        content: "";
+        background-color: #35e2ff;
+        mix-blend-mode: multiply;
+    }
+    & img {
+        filter: brightness(1.2) grayscale(100%);
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+}

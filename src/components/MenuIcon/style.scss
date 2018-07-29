@@ -1,0 +1,52 @@
+@mixin l-line {
+    min-width: 2rem;
+}
+
+@mixin md-line {
+    min-width: 1.5rem;
+}
+
+@mixin sm-line {
+    min-width: 1rem;
+}
+
+.menu-icon {
+    position: relative;
+    width: 2.6rem;
+    height: 1.5rem;
+    min-height: fit-content;
+    cursor: pointer;
+    &__icon,
+    &__icon::after,
+    &__icon::before {
+        position: absolute;
+        height: 2px;
+        background-color: rgba(0, 0, 0, 0.8);
+        border-radius: 4px;
+        box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.6);
+        transition: min-width .3s ease;
+    }
+    &__icon {
+        @include l-line;
+        top: 0%;
+    }
+    &__icon::after {
+        @include md-line;
+        content: "";
+        top: 500%;
+    }
+    &__icon::before {
+        @include sm-line;
+        content: "";
+        top: 1000%;
+    }
+    &:hover &__icon {
+        @include sm-line;
+    }
+    &:hover &__icon::after {
+        min-width: 1.75rem;
+    }
+    &:hover &__icon::before {
+        @include l-line;
+    }
+}
