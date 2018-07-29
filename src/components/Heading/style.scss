@@ -1,0 +1,12 @@
+@import "../../styles/var.scss";
+.heading {
+    width: fit-content;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1.1rem;
+    margin: 0 auto $section-space;
+    color: $heading-color;
+    &--sm {
+        margin: 0 auto ($section-space - 5rem);
+    }
+}

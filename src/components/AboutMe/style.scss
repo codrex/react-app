@@ -1,20 +1,21 @@
 @import "../../styles/mixins";
 .about-me {
-    width: 80%;
-    height: 30rem;
-    padding: 2rem 5rem;
-    padding-bottom: 0;
+    width: 100%;
+    min-height: 30rem;
+    padding: 2.5rem 5rem;
     position: relative;
     display: flex;
     background-color: #fff;
+    box-shadow: 0px 53px 127px 5px rgba(0, 0, 0, 0.32);
     &__col--left {
         position: relative;
         min-height: 100%;
-        min-width: 25rem;
-        margin-right: 4rem;
+        min-width: 22rem;
+        margin-right: 5rem;
     }
-    &__row {
+    &__avatar {
         min-width: fit-content;
+        height: 110%;
         position: absolute;
         margin-top: -5rem;
         filter: drop-shadow(1px 1px 20px rgba(0, 0, 0, 0.2));
@@ -27,16 +28,12 @@
         color: $accent-color;
     }
     &__caption {
-        font-size: 3rem;
-        text-transform: uppercase;
         margin: 0;
         color: rgba($primary-color, 0.9);
-        font-family: "Lusitana", serif;
     }
     &__body {
-        font-size: 1rem;
-        line-height: 1.6rem;
         color: $text-color;
+        max-width: 30rem;
     }
     &__btn {
         background-color: $accent-color;

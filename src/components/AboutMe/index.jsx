@@ -7,17 +7,15 @@ function AboutMe() {
   return (
     <div className="about-me">
       <div className="about-me__col about-me__col--left">
-        <div className="about-me__row">
+        <div className="about-me__avatar">
           <Avatar />
         </div>
       </div>
       <div className="about-me__col about-me__col--right">
-        <h5 className="about-me__title">About me</h5>
-        <h2 className="about-me__caption">Life long learner</h2>
+        <h2 className="about-me__caption">Hi! am Rex Ogbemudia</h2>
         <p className="about-me__body">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate nam aspernatur
-          aliquam pariatur magnam, quasi maxime dignissimos explicabo labore reiciendis placeat amet
-          accusamus facilis fuga minus harum qui quam in.
+          Am a software developer from Lagos, Nigeria. I currently work at Andela as a full-stack
+          javascript developer
         </p>
         <Button text="more" className="about-me__btn" />
       </div>

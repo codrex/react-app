@@ -1,0 +1,111 @@
+@import "../../styles/var";
+$boder-color: lighten($primary-color, 20%);
+$slide-duration: 0.5s;
+@mixin border {
+    box-shadow: 0px 0px 0px 1px $boder-color;
+    border: 1px solid $boder-color;
+}
+
+.jcarousel {
+    width: 100%;
+    height: 100%;
+    background-color: $primary-color;
+    position: relative;
+    overflow: hidden;
+    padding: 5rem 0;
+    &__row {
+        transform: translateX(0);
+        width: 100%;
+        height: 100%;
+        transition: $slide-duration transform ease;
+    }
+    &__item {
+        height: 100%;
+        position: absolute;
+        @include border;
+        &--active {
+            padding: 0 4.5rem;
+            box-shadow: none;
+            border: none;
+            &>* {
+                box-shadow: 0px 30px 108px 32px rgba(0, 0, 0, 0.34);
+            }
+        }
+        &:not(&--active)>* {
+            background: transparent !important;
+        }
+    }
+    &__btn-wrapper {
+        height: 100%;
+        position: absolute;
+        top: 0;
+        &--left {
+            left: 0;
+        }
+        &--right {
+            right: 0;
+        }
+    }
+    &__btn {
+        z-index: 2;
+        position: absolute;
+        box-sizing: border-box;
+        top: 50%;
+        background: $primary-color;
+        @include border;
+        &--left {
+            left: 100%;
+            transform: translate(-50%, -50%);
+            &::after {
+                transform: translate(-70%, -50%) rotate(-135deg);
+            }
+        }
+        &--right {
+            right: 100%;
+            transform: translate(50%, -50%);
+            &::after {
+                transform: translate(-30%, -50%) rotate(45deg);
+            }
+        }
+        &--hide {
+            opacity: 0;
+            visibility: hidden;
+        }
+        &::after {
+            border: none;
+            box-shadow: -2px 2px 0px 1px #fff;
+            width: 0.7rem;
+            height: 0.7rem;
+            box-sizing: border-box;
+            position: absolute;
+            transform-origin: center;
+            left: 50%;
+            top: 50%;
+        }
+    }
+    &__indicators {
+        min-width: fit-content;
+        padding: 0 2rem;
+        position: absolute;
+        height: 3rem;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    &__indicator {
+        height: 0.7rem;
+        width: 0.7rem;
+        border-radius: 50%;
+        background-color: rgba(0, 0, 0, 0.4);
+        margin: 0 .5rem;
+        cursor: pointer;
+        &--active {
+            background-color: rgba($boder-color, 0.7);
+            box-shadow: 2px 2px 4px 1px rgba(0, 0, 0, .34);
+            transition: $slide-duration all ease;
+        }
+    }
+}

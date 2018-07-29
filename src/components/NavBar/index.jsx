@@ -3,26 +3,30 @@ import { string, objectOf, shape } from 'prop-types';
 import './style.scss';
 
 class NavBar extends PureComponent {
-  static renderLogo(logoText = 'lines') {
-    return <h1 className="nav-bar__logo">{logoText}</h1>;
+  renderLogo() {
+    const { logoText, logoClass } = this.props;
+    return <h1 className={`nav-bar__logo ${logoClass}`}>{logoText}</h1>;
   }
 
-  static renderNavLink(url, text) {
+  renderNavLink(url, text) {
+    const { linkClass, linkAnchorClass } = this.props;
     return (
-      <li className="nav-bar__link">
-        <a href={url} className="nav-bar__a">
+      <li className={`nav-bar__link ${linkClass}`}>
+        <a href={url} className={`nav-bar__a ${linkAnchorClass}`}>
           <span>{text}</span>
         </a>
       </li>
     );
   }
   render() {
-    const { links, className, style } = this.props;
+    const {
+      links, className, style, linksClass,
+    } = this.props;
     return (
       <div className={`nav-bar ${className}`} style={style}>
-        {NavBar.renderLogo()}
-        <ul className="nav-bar__links">
-          {Object.keys(links).map(link => NavBar.renderNavLink(links[link], link))}
+        {this.renderLogo()}
+        <ul className={`nav-bar__links ${linksClass}`}>
+          {Object.keys(links).map(link => this.renderNavLink(links[link], link))}
         </ul>
       </div>
     );
@@ -33,11 +37,21 @@ NavBar.propTypes = {
   links: objectOf(string).isRequired,
   className: string,
   style: objectOf(shape),
+  linksClass: string,
+  linkClass: string,
+  linkAnchorClass: string,
+  logoClass: string,
+  logoText: string,
 };
 
 NavBar.defaultProps = {
   className: '',
   style: {},
+  linksClass: '',
+  linkClass: '',
+  linkAnchorClass: '',
+  logoClass: '',
+  logoText: 'RO',
 };
 
 export default NavBar;

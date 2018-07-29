@@ -8,7 +8,7 @@ function BigTextCaption() {
         <p className="big-text-caption__main">rexyz</p>
         <h3 className="big-text-caption__float">ogbemudia</h3>
       </div>
-      <p className="big-text-caption__sub">am a software developer</p>
+      <p className="big-text-caption__sub">{'  '}software developer</p>
     </div>
   );
 }

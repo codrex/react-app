@@ -47,6 +47,9 @@ module.exports = {
         use: [
           {
             loader: 'babel-loader',
+            query: {
+              plugins: ['transform-object-rest-spread', 'transform-class-properties'],
+            },
           },
           { loader: 'eslint-loader' },
         ],
@@ -90,7 +93,7 @@ module.exports = {
         ],
       },
       {
-        test: /\.(jpeg)$/i,
+        test: /\.(jpe?g)$/i,
         loader: 'responsive-loader',
         options: {
           adapter: require('responsive-loader/sharp'), //eslint-disable-line

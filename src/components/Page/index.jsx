@@ -2,14 +2,14 @@ import React from 'react';
 import CaptionArea from '../CaptionArea';
 import NavBar from '../NavBar';
 import Carousel from '../Carousel';
+import { NAV_LINKS } from '../../constants';
 import './style.scss';
 
 function Page() {
-  const links = { design: '/design', news: '/news', vlog: '/vlog' };
   return (
     <div className="page">
       <div className="page__col--left">
-        <NavBar links={links} />
+        <NavBar links={NAV_LINKS} />
         <div className="page__caption-area">
           <CaptionArea />
         </div>
